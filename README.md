@@ -39,8 +39,8 @@ Setup Instructions
 
 1. Clone the Repository
 
-git clone https://github.com/your-username/multimodal-sentiment-analysis.git
-cd multimodal-sentiment-analysis
+git clone https://github.com/radustefanionete/Assessment-3-Radu-Stefan-Ionete.git
+cd Assessment-3-Radu-Stefan-Ionete
 
 2. Install Dependencies
 
