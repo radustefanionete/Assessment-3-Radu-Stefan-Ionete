@@ -1,20 +1,13 @@
-from google.colab import files
 import pandas as pd
 import nltk
 import re
-import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
+import os
 
 # Downloading NLTK data (tokenizer, stopwords)
 nltk.download('punkt')
 nltk.download('stopwords')
-
-# Upload the dataset
-uploaded = files.upload()  # This will prompt for file selection
-
-# Assuming the file name is 'dataset.csv'
-csv_file = '/content/dataset.csv'
 
 # Function to preprocess text: Tokenization, removing stopwords, lowercasing
 def preprocess_text(text):
@@ -42,7 +35,7 @@ def load_and_preprocess_data(csv_file):
     # Preprocessing the text data
     df['processed_text'] = df['text'].apply(preprocess_text)
     
-    # Spliting dataset into training and testing
+    # Splitting dataset into training and testing
     X_train, X_test, y_train, y_test = train_test_split(df['processed_text'], df['sentiment'], test_size=0.2, random_state=42)
     
     return X_train, X_test, y_train, y_test
@@ -57,6 +50,9 @@ def extract_features(X_train, X_test):
 
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
+    # Path to the dataset CSV file in the extracted directory
+    csv_file = '/content/data/raw/twitter_sentiment_data/dataset.csv'  # Adjust this path
+    
     # Loading and preprocessing data
     X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
     
@@ -68,7 +64,7 @@ if __name__ == '__main__':
     print(f"Test data shape: {X_test_tfidf.shape}")
     
     # Saving the processed data and features for later use
-    joblib.dump(vectorizer, 'vectorizer.pkl')
-    joblib.dump(X_train_tfidf, 'X_train_tfidf.pkl')
-    joblib.dump(X_test_tfidf, 'X_test_tfidf.pkl')
-
+    import joblib
+    joblib.dump(vectorizer, '/content/vectorizer.pkl')
+    joblib.dump(X_train_tfidf, '/content/X_train_tfidf.pkl')
+    joblib.dump(X_test_tfidf, '/content/X_test_tfidf.pkl')
