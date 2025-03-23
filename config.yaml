@@ -1,1 +1,25 @@
+data:
+  dataset_path: "C:/Users/stefa/OneDrive/Documents/Stefan/OPIT - MSc Data Science & AI/Workings/Applications in Data Science & AI/twitter_sentiment_data.zip"
+  processed_text_path: "processed_data/processed_text.csv"
+  processed_image_path: "processed_data/images/"
+  combined_data_path: "processed_data/combined_dataset.csv"
 
+text_model:
+  vectorizer_path: "train/models/vectorizer.pkl"
+  model_path: "train/models/text_model.pkl"
+  max_features: 5000
+
+image_model:
+  model_path: "train/models/image_model.pth"
+  image_size: [224, 224]
+
+fusion_model:
+  model_path: "train/models/fusion_model.pth"
+  input_size: 7048  # text + image feature size
+  hidden_size: 128
+  num_classes: 3
+
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  epochs: 5
