@@ -10,6 +10,7 @@ This project implements a **multi-modal sentiment analysis system** that combine
 - **End-to-End Pipeline**: From data preprocessing to model evaluation
 
 ## Project Structure
+```
 ├── config.yaml # Configuration file
 ├── requirements.txt # Dependencies
 ├── run_pipeline.py # Main script to run the pipeline
@@ -26,9 +27,9 @@ This project implements a **multi-modal sentiment analysis system** that combine
 │ ├── utils/
 │ │ ├── helpers.py # Utility functions
 │ ├── data/
-│ ├── dataset/ # Local dataset storage
-└──├──download_data.py # Local dataset handling script
-
+│ │ ├── dataset/ # Local dataset storage
+│ ├── download_data.py # Local dataset handling script
+```
 
 ## Setup Instructions
 
@@ -38,11 +39,14 @@ Clone the repository to your local machine:
 ```bash
 git clone https://github.com/radustefanionete/Assessment-3-Radu-Stefan-Ionete.git
 cd Assessment-3-Radu-Stefan-Ionete
+```
 
 2. Install Dependencies
 Install all required dependencies using pip:
 
+```bash
 pip install -r requirements.txt
+```
 
 3. Prepare the Dataset
 Ensure that the dataset is stored locally inside the data/dataset/ folder.
@@ -52,3 +56,4 @@ To run the full pipeline (data preprocessing, training, and evaluation):
 
 ```bash
 python run_pipeline.py
+```
