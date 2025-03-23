@@ -8,20 +8,20 @@ with open("config.yaml", "r") as file:
 
 # Step 1: Preprocessing Data
 print("Running Text Preprocessing...")
-subprocess.run(["python", "src/preprocess/preprocess_text.py"])
+subprocess.run(["python", "src/preprocessing/preprocess_text.py"])
 
 print("Running Image Preprocessing...")
-subprocess.run(["python", "src/preprocess/preprocess_image.py"])
+subprocess.run(["python", "src/preprocessing/preprocess_image.py"])
 
 # Step 2: Training Models
 print("Training Text Model...")
-subprocess.run(["python", "src/models/train_nlp.py"])
+subprocess.run(["python", "src/models/train_text_model.py"])
 
 print("Training Image Model...")
-subprocess.run(["python", "src/models/train_cv.py"])
+subprocess.run(["python", "src/models/train_image_model.py"])
 
 print("Training Fusion Model...")
-subprocess.run(["python", "src/models/final_model.py"])
+subprocess.run(["python", "src/models/train_fusion.py"])
 
 # Step 3: Evaluating Model
 print("Evaluating Model Performance...")
