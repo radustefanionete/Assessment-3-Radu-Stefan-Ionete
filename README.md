@@ -15,13 +15,13 @@ This project implements a **multi-modal sentiment analysis system** that combine
 ├── requirements.txt # Dependencies
 ├── run_pipeline.py # Main script to run the pipeline
 ├── src/
-│ ├── preprocess/
+│ ├── preprocessing/
 │ │ ├── preprocess_text.py # Text preprocessing
 │ │ ├── preprocess_image.py # Image preprocessing
 │ ├── models/
-│ │ ├── train_nlp.py # NLP model training
-│ │ ├── train_cv.py # CV model training
-│ │ ├── final_model.py # Fusion model
+│ │ ├── train_text_model.py # NLP model training
+│ │ ├── train_image_model.py # CV model training
+│ │ ├── train_fusion.py # Fusion model
 │ ├── evaluation/
 │ │ ├── evaluate.py # Model evaluation
 │ ├── utils/
