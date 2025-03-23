@@ -1,1 +1,55 @@
 # Assessment-3-Radu-Stefan-Ionete
+
+Overview
+
+This project implements a multi-modal sentiment analysis system that combines Natural Language Processing (NLP) and Computer Vision (CV) techniques to classify sentiment from both text and images. The model predicts sentiment as positive, negative, or neutral based on input data.
+
+Features
+
+Text Processing: Tokenization, stopword removal, word embeddings (Word2Vec, GloVe, BERT)
+
+Image Processing: CNN-based feature extraction (ResNet, VGG)
+
+Fusion Model: Merging text and image features for final classification
+
+End-to-End Pipeline: From data preprocessing to model evaluation
+
+Project Structure
+
+├── config.yaml               # Configuration file
+├── requirements.txt          # Dependencies
+├── run_pipeline.py           # Main script to run the pipeline
+├── src/
+│   ├── preprocess/
+│   │   ├── preprocess_text.py     # Text preprocessing
+│   │   ├── preprocess_image.py    # Image preprocessing
+│   ├── models/
+│   │   ├── train_nlp.py           # NLP model training
+│   │   ├── train_cv.py            # CV model training
+│   │   ├── final_model.py         # Fusion model
+│   ├── evaluation/
+│   │   ├── evaluate.py            # Model evaluation
+│   ├── utils/
+│   │   ├── helpers.py             # Utility functions
+│   ├── data/
+│       ├── dataset/               # Local dataset storage
+│       ├── download_data.py       # Local dataset handling script
+
+Setup Instructions
+
+1. Clone the Repository
+
+git clone https://github.com/your-username/multimodal-sentiment-analysis.git
+cd multimodal-sentiment-analysis
+
+2. Install Dependencies
+
+pip install -r requirements.txt
+
+3. Prepare the Dataset
+
+Ensure the dataset is stored locally inside the data/dataset/ folder.
+
+4. Run the Pipeline
+
+python run_pipeline.py
