@@ -41,17 +41,17 @@ git clone https://github.com/radustefanionete/Assessment-3-Radu-Stefan-Ionete.gi
 cd Assessment-3-Radu-Stefan-Ionete
 ```
 
-2. Install Dependencies
+### 2. Install Dependencies
 Install all required dependencies using pip:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Prepare the Dataset
+### 3. Prepare the Dataset
 Ensure that the dataset is stored locally inside the data/dataset/ folder.
 
-4. Run the Pipeline
+### 4. Run the Pipeline
 To run the full pipeline (data preprocessing, training, and evaluation):
 
 ```bash
