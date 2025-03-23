@@ -3,7 +3,6 @@ import nltk
 import re
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-import os
 
 # Downloading NLTK data (tokenizer, stopwords)
 nltk.download('punkt')
@@ -27,15 +26,15 @@ def preprocess_text(text):
     # Joining tokens back into a string
     return ' '.join(tokens)
 
-# Function to load dataset and preprocess (for Excel file)
-def load_and_preprocess_data(excel_file):
-    # Load dataset from Excel
-    df = pd.read_excel(excel_file)
+# Function to load dataset and preprocess
+def load_and_preprocess_data(csv_file):
+    # Load dataset
+    df = pd.read_csv(csv_file)
     
     # Preprocessing the text data
     df['processed_text'] = df['text'].apply(preprocess_text)
     
-    # Splitting dataset into training and testing
+    # Spliting dataset into training and testing
     X_train, X_test, y_train, y_test = train_test_split(df['processed_text'], df['sentiment'], test_size=0.2, random_state=42)
     
     return X_train, X_test, y_train, y_test
@@ -50,11 +49,11 @@ def extract_features(X_train, X_test):
 
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
-    # Path to the dataset Excel file in Google Drive
-    excel_file = '/content/drive/MyDrive/datasets/twitter_sentiment_data/LabeledData.xlsx'  # Adjust this path
+    # Path to the dataset CSV file
+    csv_file = 'data/twitter_sentiment_data/dataset.csv'
     
     # Loading and preprocessing data
-    X_train, X_test, y_train, y_test = load_and_preprocess_data(excel_file)
+    X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
     
     # Extracting features using TF-IDF
     X_train_tfidf, X_test_tfidf = extract_features(X_train, X_test)
@@ -64,7 +63,6 @@ if __name__ == '__main__':
     print(f"Test data shape: {X_test_tfidf.shape}")
     
     # Saving the processed data and features for later use
-    import joblib
-    joblib.dump(vectorizer, '/content/drive/MyDrive/datasets/vectorizer.pkl')
-    joblib.dump(X_train_tfidf, '/content/drive/MyDrive/datasets/X_train_tfidf.pkl')
-    joblib.dump(X_test_tfidf, '/content/drive/MyDrive/datasets/X_test_tfidf.pkl')
+    joblib.dump(vectorizer, 'vectorizer.pkl')
+    joblib.dump(X_train_tfidf, 'X_train_tfidf.pkl')
+    joblib.dump(X_test_tfidf, 'X_test_tfidf.pkl')
