@@ -1,0 +1,9 @@
+# Ignore datasets, models, and system files
+data/
+*.csv
+*.json
+*.h5
+*.pt
+*.pkl
+__pycache__/
+venv/
