@@ -1,19 +1,20 @@
-import gdown
-import zipfile
 import os
+import zipfile
 
-# Google Drive File ID
-file_id = '1ZAi_M9VnMqGGiWprFcXVaGecawFlolcU'  
-url = f'https://drive.google.com/file/d/1ZAi_M9VnMqGGiWprFcXVaGecawFlolcU/view?usp=drive_link'
+# Defining the local dataset path
+local_zip_path = r"C:\Users\stefa\OneDrive\Documents\Stefan\OPIT - MSc Data Science & AI\Workings\Applications in Data Science & AI\twitter_sentiment_data.zip"
+extract_path = "data/raw"
 
-# Output directory for the downloaded zip file
-output = 'data/twitter_sentiment_data.zip'
+def extract_local_data():
+    if not os.path.exists(extract_path):
+        os.makedirs(extract_path)
 
-# Downloading the dataset from Google Drive
-gdown.download(url, output, quiet=False)
+    try:
+        with zipfile.ZipFile(local_zip_path, 'r') as zip_ref:
+            zip_ref.extractall(extract_path)
+        print(f"Dataset extracted successfully to {extract_path}")
+    except Exception as e:
+        print(f"Error extracting dataset: {e}")
 
-# Extracting the dataset
-with zipfile.ZipFile(output, 'r') as zip_ref:
-    zip_ref.extractall('data/')
-
-print("Dataset downloaded and extracted successfully!")
+if __name__ == "__main__":
+    extract_local_data()
