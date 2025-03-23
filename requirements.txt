@@ -1,1 +1,10 @@
-
+pandas
+numpy
+scikit-learn
+torch
+torchvision
+joblib
+transformers
+matplotlib
+Pillow
+PyYAML
