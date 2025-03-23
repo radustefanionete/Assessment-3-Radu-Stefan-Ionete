@@ -51,7 +51,7 @@ def extract_features(X_train, X_test):
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
     # Path to the dataset CSV file in Google Drive
-    csv_file = '/content/drive/MyDrive/datasets/twitter_sentiment_data/dataset.csv'  # Adjust this path
+    csv_file = '/content/twitter_sentiment_data.zip'
     
     # Loading and preprocessing data
     X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
