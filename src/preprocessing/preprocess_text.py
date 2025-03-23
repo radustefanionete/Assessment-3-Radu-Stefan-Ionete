@@ -9,6 +9,8 @@ import os
 nltk.download('punkt')
 nltk.download('stopwords')
 
+csv_file = '/content/twitter_sentiment_data.zip'
+
 # Function to preprocess text: Tokenization, removing stopwords, lowercasing
 def preprocess_text(text):
     # Remove non-alphabetic characters (e.g., punctuation, numbers)
