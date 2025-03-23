@@ -23,4 +23,11 @@ subprocess.run(["python", "train/train_image_model.py"])
 print("Training Fusion Model...")
 subprocess.run(["python", "train/train_fusion.py"])
 
+# Step 3: Evaluating Model
+    print("Evaluating Model Performance...")
+    run_script(EVALUATE_MODEL)
+
 print("Pipeline completed successfully!")
+
+if __name__ == "__main__":
+    main()
