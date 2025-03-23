@@ -9,8 +9,6 @@ import os
 nltk.download('punkt')
 nltk.download('stopwords')
 
-csv_file = '/content/twitter_sentiment_data.zip'
-
 # Function to preprocess text: Tokenization, removing stopwords, lowercasing
 def preprocess_text(text):
     # Remove non-alphabetic characters (e.g., punctuation, numbers)
@@ -29,10 +27,10 @@ def preprocess_text(text):
     # Joining tokens back into a string
     return ' '.join(tokens)
 
-# Function to load dataset and preprocess
-def load_and_preprocess_data(csv_file):
-    # Load dataset
-    df = pd.read_csv(csv_file)
+# Function to load dataset and preprocess (for Excel file)
+def load_and_preprocess_data(excel_file):
+    # Load dataset from Excel
+    df = pd.read_excel(excel_file)
     
     # Preprocessing the text data
     df['processed_text'] = df['text'].apply(preprocess_text)
@@ -52,11 +50,11 @@ def extract_features(X_train, X_test):
 
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
-    # Path to the dataset CSV file in Google Drive
-    csv_file = '/content/twitter_sentiment_data.zip'
+    # Path to the dataset Excel file in Google Drive
+    excel_file = '/content/drive/MyDrive/datasets/twitter_sentiment_data/LabeledData.xlsx'  # Adjust this path
     
     # Loading and preprocessing data
-    X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
+    X_train, X_test, y_train, y_test = load_and_preprocess_data(excel_file)
     
     # Extracting features using TF-IDF
     X_train_tfidf, X_test_tfidf = extract_features(X_train, X_test)
