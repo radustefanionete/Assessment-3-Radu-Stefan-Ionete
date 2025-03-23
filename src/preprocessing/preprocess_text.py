@@ -1,6 +1,7 @@
 import pandas as pd
 import nltk
 import re
+import joblib  # Import joblib to save the models
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -50,7 +51,7 @@ def extract_features(X_train, X_test):
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
     # Path to the dataset CSV file
-    csv_file = 'data/twitter_sentiment_data/dataset.csv'
+    csv_file = '/content/dataset.csv'
     
     # Loading and preprocessing data
     X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
