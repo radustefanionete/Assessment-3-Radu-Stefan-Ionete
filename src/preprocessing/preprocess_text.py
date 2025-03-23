@@ -50,8 +50,8 @@ def extract_features(X_train, X_test):
 
 # Main function to run the preprocessing steps
 if __name__ == '__main__':
-    # Path to the dataset CSV file in the extracted directory
-    csv_file = '/content/data/raw/twitter_sentiment_data/dataset.csv'  # Adjust this path
+    # Path to the dataset CSV file in Google Drive
+    csv_file = '/content/drive/MyDrive/datasets/twitter_sentiment_data/dataset.csv'  # Adjust this path
     
     # Loading and preprocessing data
     X_train, X_test, y_train, y_test = load_and_preprocess_data(csv_file)
@@ -65,6 +65,6 @@ if __name__ == '__main__':
     
     # Saving the processed data and features for later use
     import joblib
-    joblib.dump(vectorizer, '/content/vectorizer.pkl')
-    joblib.dump(X_train_tfidf, '/content/X_train_tfidf.pkl')
-    joblib.dump(X_test_tfidf, '/content/X_test_tfidf.pkl')
+    joblib.dump(vectorizer, '/content/drive/MyDrive/datasets/vectorizer.pkl')
+    joblib.dump(X_train_tfidf, '/content/drive/MyDrive/datasets/X_train_tfidf.pkl')
+    joblib.dump(X_test_tfidf, '/content/drive/MyDrive/datasets/X_test_tfidf.pkl')
