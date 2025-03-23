@@ -7,3 +7,6 @@ data/
 *.pkl
 __pycache__/
 venv/
+train/models/*.h5
+train/models/*.pth
+train/models/*.pkl
